@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Table from './Table'
+import {Users} from './User'
+import {useState} from 'react'
+function App(){
+  const [data,setData]=useState('');
+  const secret=['first_name','last_name','email','gender']
 
-function App() {
+  const search=(demo)=>{
+    return demo.filter((item)=>secret.some(iter=>item[iter].toLowerCase().includes(data)));
+  }
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <center>
+     <input type='text' placeholder='search' className='search' value={data} onChange={(e)=>setData(e.target.value)}/>
+     
+     <Table demo={search(Users)} />
+      </center>
+    
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

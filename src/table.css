@@ -1,0 +1,8 @@
+.tabular{
+    border: 2px solid ,blue;
+    margin-top: 20px;
+}
+
+tr,th,td{
+    border: 1px solid,red;
+}
